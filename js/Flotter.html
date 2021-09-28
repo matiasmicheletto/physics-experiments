@@ -1,0 +1,43 @@
+﻿<!DOCTYPE HTML>
+<html id="document">
+  <head>
+    <title> Gráficos </title>
+	
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="Grafico"/>
+    <meta name="author" content="Matias Micheletto"/>
+  </head>
+
+  <body>
+	<div id="placeholder"></div>
+	<div id="legend"></div>
+  
+	<script language="javascript" type="text/javascript" src="jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="jquery.flot.js"></script>
+	<script language="javascript" type="text/javascript" src="Flotter.js"></script>
+	<script language="javascript" type="text/javascript" src="dat.gui.min.js"></script>
+	
+	<script language="javascript" type="text/javascript">
+		
+		Flotter.initialize();
+		Flotter.setHidden(false);
+		Flotter.setSize(window.innerWidth - 50, window.innerHeight - 50);
+        Flotter.setPos(10,10);
+
+		window.onresize = function(){
+			Flotter.setSize(window.innerWidth - 50, window.innerHeight - 50);
+			Flotter.setPos(10,10);
+			Flotter.draw();
+		};
+
+		var params;
+		var data = [];
+		var updateData = function(){};
+		var gui = new dat.GUI({width: 300});
+
+	
+	</script>
+	
+  </body>
+
+</html>
