@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Mechanichs Experiments</title>
+    <title>Classical Mechanics Lab</title>
     <meta name="description" content="Mechanics experiments" />
     <meta name="author" content="Matías Micheletto" />
 
     <meta property="og:title" content="Mechanichs Experiments">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
+    <meta property="og:url" content="physics-experiments.herokuapp.com">
     <meta property="og:description" content="Classical 3D mechanics experiments with ThreeJS">
     <meta property="og:image" content="img/screenshot.png">
 
@@ -32,32 +32,35 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" title="Docs"
-                        href="https://github.com/matiasmicheletto/physics-experiments" target="_blank"><i
-                            class="material-icons">developer_mode</i></a></li>
-                <li class="nav-item"><a class="nav-link" title="Help" data-toggle="modal" data-target="#help-modal"
-                        style="cursor:pointer;"><i class="material-icons">help</i></a></li>
+            <ul class="navbar-nav mr-auto" style="width:100%; flex-direction: row-reverse;">
+                <li class="nav-item">
+                    <a class="nav-link" title="Source code" href="https://github.com/matiasmicheletto/physics-experiments"
+                        target="_blank">
+                        <i class="material-icons">developer_mode</i></a></li>                
                 <li class="nav-item"><a class="nav-link" title="About" data-toggle="modal" data-target="#about-modal"
                         style="cursor:pointer;"><i class="material-icons">info</i></a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="container" style="margin-top: 150px;">
+    <div class="container">
+        <h2>Classical mechanics experiments</h2>
         <div class="card-group">
             <div class="card hoverable shadow">
                 <img src="img/screenshots/spring_mass.png" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Spring-mass system</h5>
                     <p class="card-text">A simple spring-mass system on a frictional surface.</p>
+                    <a href="experiments/spring_mass.html" class="btn btn-sm btn-secondary">Run this experiment</a>
                 </div>
             </div>
             <div class="card hoverable shadow">
                 <img src="img/screenshots/ball_on_table.png" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Ball on table</h5>
-                    <p class="card-text">A ball on a table attached to a box through a hole in the middle of the table.</p>
+                    <p class="card-text">A ball on a table attached to a box through a hole in the middle of the table.
+                    </p>
+                    <a href="experiments/ball_on_table.html" class="btn btn-sm btn-secondary">Run this experiment</a>
                 </div>
             </div>
             <div class="card hoverable shadow">
@@ -65,6 +68,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Gravitation</h5>
                     <p class="card-text">A simulation of the movement of the moon around the earth.</p>
+                    <a href="experiments/gravitation.html" class="btn btn-sm btn-secondary">Run this experiment</a>
                 </div>
             </div>
         </div>
@@ -75,20 +79,26 @@
                 <div class="card-body">
                     <h5 class="card-title">Inclined plane</h5>
                     <p class="card-text">A sliding box over an inclined frictional surface.</p>
+                    <a href="experiments/inclined_plane.html" class="btn btn-sm btn-secondary">Run this experiment</a>
                 </div>
             </div>
             <div class="card hoverable shadow">
                 <img src="img/screenshots/double_inclined_plane.png" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Double inclined plane</h5>
-                    <p class="card-text">A pair of boxes sliding on different inclined planes and attached between each other with a string.</p>
+                    <p class="card-text">A pair of boxes sliding on different inclined planes and attached between each
+                        other with a string.</p>
+                    <a href="experiments/double_inclined_plane.html" class="btn btn-sm btn-secondary">Run this
+                        experiment</a>
                 </div>
             </div>
             <div class="card hoverable shadow">
                 <img src="img/screenshots/ramp.png" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">Ramp</h5>
-                    <p class="card-text">A box sliding in a frictionless skate ramp with a short rough surface and colliding with a spring.</p>
+                    <p class="card-text">A box sliding in a frictionless skate ramp with a short rough surface and
+                        colliding with a spring.</p>
+                    <a href="experiments/ramp.html" class="btn btn-sm btn-secondary">Run this experiment</a>
                 </div>
             </div>
             <div class="card hoverable shadow">
@@ -96,33 +106,12 @@
                 <div class="card-body">
                     <h5 class="card-title">Pendulum waves</h5>
                     <p class="card-text">A set of pendulums of different lengths that create a wave effect.</p>
-                </div>
-            </div>
-        </div>
-    </div>    
-
-
-    <!-- ##################### MODALS ##################### -->
-
-    <div class="modal fade" id="help-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Help</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Ok</button>
+                    <a href="experiments/pendulum_waves.html" class="btn btn-sm btn-secondary">Run this experiment</a>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -134,28 +123,30 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>This is a small compendium of javascript 3D animations that allows the user to perform mechanics
-                        experiments with bodies and systems. </p>
+                    <p style="font-size: 150%; line-height: 100%;">This is a small compendium of javascript 3D animations that allows you to perform mechanics
+                        experiments with bodies and systems. Each experiment has a small control panel where you can adjust the different parameters and control the simulation.</p>
                     <br>
-                    <h5 class="card-title">Design and implementation</h5>
-                    Dr. Matías J. Micheletto <a
-                        href="http://matiasmicheletto.github.io/">http://matiasmicheletto.github.io/</a>
-                    <br>
-                    Email: <a
-                        href="mailto:matias.micheletto@uns.edu.ar?Subject=Ref.%20SimCirJM">matias.micheletto@uns.edu.ar</a>
-                    <br>
-                    Docs: <a
-                        href="https://github.com/matiasmicheletto/physics-experiments">https://github.com/matiasmicheletto/physics-experiments</a>
-                    </p>
-                    <br><br>
-                    <h5 class="card-title">Terms and conditions</h5>
-                    <p>This program is free software: you can redistribute it and/or modify it under the terms of the
-                        GNU General Public License as published by the Free Software Foundation, either version 3 of the
-                        License.</p>
-                    <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-                        even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-                        General Public License for more details. You should have received a copy of the GNU General
-                        Public License along with this program. If not, see http://www.gnu.org/licenses.</p>
+                    <div style="font-size: small;">
+                        <h5>Design and implementation</h5>
+                        Dr. Matías J. Micheletto <a
+                            href="http://matiasmicheletto.github.io/">http://matiasmicheletto.github.io/</a>
+                        <br>
+                        Email: <a
+                            href="mailto:matias.micheletto@uns.edu.ar?Subject=Ref.%20SimCirJM">matias.micheletto@uns.edu.ar</a>
+                        <br>
+                        Doc: <a
+                            href="https://github.com/matiasmicheletto/physics-experiments">https://github.com/matiasmicheletto/physics-experiments</a>
+                        </p>
+                        <br><br>
+                        <h5>Terms and conditions</h5>
+                        <p>This program is free software: you can redistribute it and/or modify it under the terms of the
+                            GNU General Public License as published by the Free Software Foundation, either version 3 of the
+                            License.</p>
+                        <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+                            even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+                            General Public License for more details. You should have received a copy of the GNU General
+                            Public License along with this program. If not, see http://www.gnu.org/licenses.</p>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Ok</button>

@@ -5,4 +5,11 @@
 .card{
     transition: all 0.2s ease-in-out;
     margin: 20px;
+    cursor: pointer;
+    min-width: 250px;
+}
+
+.container{
+    margin-top:100px;
+    margin-bottom: 50px;
 }

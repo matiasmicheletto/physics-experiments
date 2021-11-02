@@ -28,6 +28,6 @@ this.step = function(){
 }
 ```
 
-The experiment library is available online on [this site](https://physics-experiment.heroku.app).
+The experiment library is available online on [this site](https://physics-experiments.herokuapp.com).
 
 This is a small part of a bigger project that was developed in the context of an internship carried out in the Department of Electrical Engineering and Computers, at National University of the South.
