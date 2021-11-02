@@ -12,6 +12,8 @@ function dynamic(){
 	this.W = 300; // Ancho
 	this.H = 150; // Largo
 	
+	this.contact = true; // Contacto entre los objetos
+	
 	this.x1 = 0; // Posicion del plano
 	this.x2 = 20; // Posicion de la caja
 
@@ -26,12 +28,14 @@ function dynamic(){
 	};
 
     this.init = function(){
-
+		this.x1 = 0;
+		this.x2 = 20;
+		this.contact = true;
     };
 
     this.step = function(){
-		this.x1 -= 0.01;
-		this.x2 += 0.05;
+		this.x1 -= this.dt;
+		this.x2 += this.dt*5;
     }
 };
 
@@ -134,7 +138,8 @@ inclinedPlane.updateAngle = function(){ // Modificar el angulo del plano
 	rightSidePlane.geometry.vertices[2].x = dyn.W*Math.cos(dyn.angle);
 	rightSidePlane.geometry.verticesNeedUpdate = true;	
 	
-	box.rotation.z = -dyn.angle;
+	if(dyn.contact)
+		box.rotation.z = -dyn.angle;
 	
 	dyn2Three();
 }
@@ -163,10 +168,15 @@ scene.add(light2);
 function dyn2Three(){ // Actualizar posicion de los cuerpos
     inclinedPlane.position.x = dyn.x1;
 	box.position.x = dyn.x2;
-	box.position.y = (dyn.W*dyn.cos - dyn.x2 + dyn.x1)*dyn.tan + 15/dyn.cos;
 	
-	// Luego de se separen
-	//box.position.y = 15;
+	if(dyn.contact){
+		box.position.y = (dyn.W*dyn.cos - dyn.x2 + dyn.x1)*dyn.tan + 15/dyn.cos;
+		if(box.position.y < 15){
+			dyn.contact = false;
+			box.rotation.z = 0;
+		}
+	}
+		
 };
 
 // Animacion
@@ -193,20 +203,22 @@ var params = {
 	b2: dyn.b2,
 	angle: dyn.angle*180/Math.PI,
 	g: dyn.g,
-	play_pause: function(){running = !running}
+	play_pause: function(){running = !running},
+	reset: function(){dyn.init(); box.rotation.z = -dyn.angle; dyn2Three();},
 };
 
-var m1_slider = gui.add(params, 'm1',1,10,0.1).name("Masa del plano");
-var m2_slider = gui.add(params, 'm2',1,10,0.1).name("Masa de la caja");
-var b1_slider = gui.add(params, 'b1',0,5).name("Rozamiento del suelo");
-var b2_slider = gui.add(params, 'b2',0,5).name("Rozamiento del plano");
-var angle_slider = gui.add(params, 'angle',0,85).name("Inclinación del plano");
-var g_slider = gui.add(params, 'g',0,20).name("Gravedad");
+var m1_slider = gui.add(params, 'm1',1,10,0.1).name("Mass of plane");
+var m2_slider = gui.add(params, 'm2',1,10,0.1).name("Mass of box");
+var b1_slider = gui.add(params, 'b1',0,5).name("Ground friction");
+var b2_slider = gui.add(params, 'b2',0,5).name("Plane friction");
+var angle_slider = gui.add(params, 'angle',0,85).name("Plane angle");
+var g_slider = gui.add(params, 'g',0,20).name("Gravity");
 gui.add(params, 'play_pause').name("Play/Pause");
+gui.add(params, 'reset').name("Reset");
 
 m1_slider.onFinishChange(function(val){dyn.m1 = val;});
 m2_slider.onFinishChange(function(val){dyn.m2 = val;});
 b1_slider.onFinishChange(function(val){dyn.b1 = val;});
 b2_slider.onFinishChange(function(val){dyn.b2 = val;});
-angle_slider.onFinishChange(function(val){dyn.setAngle(val*Math.PI/180); inclinedPlane.updateAngle();});
+angle_slider.onFinishChange(function(val){dyn.setAngle(val*Math.PI/180); dyn.init(); inclinedPlane.updateAngle();});
 g_slider.onFinishChange(function(val){dyn.g = val;});

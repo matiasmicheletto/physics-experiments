@@ -201,15 +201,15 @@ var params = {
     }
 };
 
-var m1_slider = gui.add(params, 'm1',1,10,0.1).name("Masa de la esfera");
-var m2_slider = gui.add(params, 'm2',1,10).name("Masa de la caja");
-var b_slider = gui.add(params, 'b',0,5).name("Rozamiento");
-var ro_slider = gui.add(params, 'ro',0.1,1).name("Posición inicial");
-var wo_slider = gui.add(params, 'wo',0,10).name("Velocidad inicial");
-var g_slider = gui.add(params, 'g',1,20).name("Gravedad");
+var m1_slider = gui.add(params, 'm1',1,10,0.1).name("Ball mass");
+var m2_slider = gui.add(params, 'm2',1,10).name("Box mass");
+var b_slider = gui.add(params, 'b',0,5).name("Friction");
+var ro_slider = gui.add(params, 'ro',0.1,1).name("Initial position");
+var wo_slider = gui.add(params, 'wo',0,10).name("Initial speed");
+var g_slider = gui.add(params, 'g',1,20).name("Gravity");
 gui.add(params, 'play_pause').name("Play/Pause");
 gui.add(params, 'reset').name("Reset");
-gui.add(params, 'plot').name("Gráfico");
+gui.add(params, 'plot').name("Plots");
 
 m1_slider.onFinishChange(function(val){dyn.m1 = val;});
 m2_slider.onFinishChange(function(val){dyn.m2 = val;});
@@ -232,22 +232,22 @@ var openFlotter = function(){ // Mostrar grafica
             };
 
             // Inicialmente se grafica la posicion
-            childWindow.data = [{data:dyn.h,label: "Posición",vble: ["t = ","x = "],unit: ["s","m"]}];
+            childWindow.data = [{data:dyn.h,label: "Position",vble: ["t = ","x = "],unit: ["s","m"]}];
             childWindow.Flotter.data = childWindow.data;
             childWindow.Flotter.draw();
 
             // Al cambiar opciones se actualizan los arreglos de datos
             childWindow.updateData = function(){
                 childWindow.data = [];
-                if(childWindow.params.h) childWindow.data.push({data:dyn.h,label: "Posición",vble: ["t = ","x = "],unit: ["s","m"]});
-                if(childWindow.params.vel) childWindow.data.push({data:dyn.vel,label: "Velocidad",vble: ["t = ","w = "],unit: ["s","m/s"]});
+                if(childWindow.params.h) childWindow.data.push({data:dyn.h,label: "Position",vble: ["t = ","x = "],unit: ["s","m"]});
+                if(childWindow.params.vel) childWindow.data.push({data:dyn.vel,label: "Velocity",vble: ["t = ","w = "],unit: ["s","m/s"]});
                 childWindow.Flotter.clear();
                 childWindow.Flotter.data = childWindow.data;
                 childWindow.Flotter.draw();
             };
 
-            childWindow.gui.add(childWindow.params, 'h' ).name("Posición").onChange(childWindow.updateData);
-            childWindow.gui.add(childWindow.params, 'vel' ).name("Velocidad").onChange(childWindow.updateData);
+            childWindow.gui.add(childWindow.params, 'h' ).name("Position").onChange(childWindow.updateData);
+            childWindow.gui.add(childWindow.params, 'vel' ).name("Velocity").onChange(childWindow.updateData);
             childWindow.gui.add(params, 'play_pause').name("Play/Pause");
         };
     window.onclose = function(){

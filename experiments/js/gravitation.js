@@ -182,13 +182,13 @@ var params = {
 	}
 };
 
-var m1_slider = gui.add(params, 'm1',1,100,0.1).name("Masa de la Tierra");
-var m2_slider = gui.add(params, 'm2',1,10).name("Masa de la Luna");
-var r_slider = gui.add(params, 'r',150000,1000000,10000).name("Posicion inicial");
-var v_slider = gui.add(params, 'v',1,5).name("Velocidad inicial");
+var m1_slider = gui.add(params, 'm1',1,100,0.1).name("Mass of earth");
+var m2_slider = gui.add(params, 'm2',1,10).name("Mass of moon");
+var r_slider = gui.add(params, 'r',150000,1000000,10000).name("Initial position");
+var v_slider = gui.add(params, 'v',1,5).name("Inicial velocity");
 gui.add(params, 'play_pause').name("Play/Pause");
 gui.add(params, 'reset').name("Reset");
-gui.add(params, 'plot').name("Gráfico");
+gui.add(params, 'plot').name("Plots");
 
 m1_slider.onFinishChange(function(val){dyn.m1 = val;});
 m2_slider.onFinishChange(function(val){dyn.m2 = val;});
@@ -208,20 +208,20 @@ var openFlotter = function(){ // Mostrar grafica
             };
 
             // Inicialmente se grafica la posicion
-            childWindow.data = [{data:dyn.pos,label: "Posición",vble: ["t = ","r = "],unit: ["s","m"]}];
+            childWindow.data = [{data:dyn.pos,label: "Position",vble: ["t = ","r = "],unit: ["s","m"]}];
             childWindow.Flotter.data = childWindow.data;
             childWindow.Flotter.draw();
 
             // Al cambiar opciones se actualizan los arreglos de datos
             childWindow.updateData = function(){
                 childWindow.data = [];
-                if(childWindow.params.r) childWindow.data.push({data:dyn.pos,label: "Posición",vble: ["t = ","r = "],unit: ["s","m"]});
+                if(childWindow.params.r) childWindow.data.push({data:dyn.pos,label: "Position",vble: ["t = ","r = "],unit: ["s","m"]});
                 childWindow.Flotter.clear();
                 childWindow.Flotter.data = childWindow.data;
                 childWindow.Flotter.draw();
             };
 
-            childWindow.gui.add(childWindow.params, 'r' ).name("Posición").onChange(childWindow.updateData);
+            childWindow.gui.add(childWindow.params, 'r' ).name("Position").onChange(childWindow.updateData);
             childWindow.gui.add(params, 'play_pause').name("Play/Pause");
         };
 	window.onclose = function(){

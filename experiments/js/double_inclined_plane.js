@@ -9,7 +9,7 @@ function dynamic(){
 
     this.g = 9.8; // Aceleracion de la gravedad
 	
-    this.L = 10; // Longitud de la cuerda
+    this.L = 15; // Longitud de la cuerda
 
 	// Dimensiones del plano
 	this.alpha = Math.PI/6; // Angulo de inclinacion
@@ -21,8 +21,8 @@ function dynamic(){
 	this.H = 200; // Altura del plano
 	this.W = 100; // Ancho del plano
 
-	this.x1 = 30; // Posicion de la caja 1
-	this.x2 = -50; // Posicion de la caja 2
+	this.x1 = 50; // Posicion de la caja 1
+	this.x2 = -60; // Posicion de la caja 2
 	this.x3 = 0; // Posicion del plano
 
     this.dt = 0.01; // Paso diferencial de tiempo
@@ -46,13 +46,14 @@ function dynamic(){
 	};
 
     this.init = function(){
-		this.x1 = 30; // Posicion de la caja 1
-		this.x2 = -50; // Posicion de la caja 2
-		this.x3 = 0; // Posicion del plano
-    };
+		this.x1 = 50;
+		this.x2 = -60;
+		this.x3 = 0;
+		this.t = 0;
+	};					
 
     this.step = function(){
-    	this.x1 += 2*this.dt;
+    	this.x1 -= 2*this.dt;
     	this.x2 -= 2*this.dt;
     	this.x3 += this.dt;
     }
@@ -276,17 +277,17 @@ var params = {
 	reset: function(){dyn.init(); dyn2Three();},
 };
 
-var m1_slider = gui.add(params, 'm1',1,10,0.1).name("Masa de la caja 1");
-var m2_slider = gui.add(params, 'm2',1,10,0.1).name("Masa de la caja 2");
-var m3_slider = gui.add(params, 'm3',1,10,0.1).name("Masa del plano");
-var b1_slider = gui.add(params, 'b1',0,5).name("Rozamiento del plano 1");
-var b2_slider = gui.add(params, 'b2',0,5).name("Rozamiento del plano 2");
-var b3_slider = gui.add(params, 'b3',0,5).name("Rozamiento del suelo");
-var L_slider = gui.add(params, 'L',10,100).name("Longitud de la cuerda");
-var alpha_slider = gui.add(params, 'alpha',15,85).name("Inclinación del plano 1");
-var beta_slider = gui.add(params, 'beta',15,85).name("Inclinación del plano 2");
-var h_slider = gui.add(params, 'h',50,300).name("Altura de la cresta");
-var g_slider = gui.add(params, 'g',0,20).name("Gravedad");
+var m1_slider = gui.add(params, 'm1',1,10,0.1).name("Box 1 mass");
+var m2_slider = gui.add(params, 'm2',1,10,0.1).name("Box 2 mass");
+var m3_slider = gui.add(params, 'm3',1,10,0.1).name("Planes mass");
+var b1_slider = gui.add(params, 'b1',0,5).name("Plane 1 friction");
+var b2_slider = gui.add(params, 'b2',0,5).name("Plane 2 friction");
+var b3_slider = gui.add(params, 'b3',0,5).name("Ground friction");
+var L_slider = gui.add(params, 'L',10,100).name("Spring length");
+var alpha_slider = gui.add(params, 'alpha',15,85).name("Plane 1 inclination");
+var beta_slider = gui.add(params, 'beta',15,85).name("Plane 2 inclination");
+var h_slider = gui.add(params, 'h',50,300).name("Height of ridge");
+var g_slider = gui.add(params, 'g',0,20).name("Gravity");
 gui.add(params, 'play_pause').name("Play/Pause");
 gui.add(params, 'reset').name("Reset");
 
