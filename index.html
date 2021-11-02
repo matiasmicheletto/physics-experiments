@@ -1,0 +1,171 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Mechanichs Experiments</title>
+    <meta name="description" content="Mechanics experiments" />
+    <meta name="author" content="Matías Micheletto" />
+
+    <meta property="og:title" content="Mechanichs Experiments">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:description" content="Classical 3D mechanics experiments with ThreeJS">
+    <meta property="og:image" content="img/screenshot.png">
+
+    <link rel="icon" href="experiments/favicon.ico">
+
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" style="cursor: pointer;"><img width="50" height="50" src="img/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" title="Docs"
+                        href="https://github.com/matiasmicheletto/physics-experiments" target="_blank"><i
+                            class="material-icons">developer_mode</i></a></li>
+                <li class="nav-item"><a class="nav-link" title="Help" data-toggle="modal" data-target="#help-modal"
+                        style="cursor:pointer;"><i class="material-icons">help</i></a></li>
+                <li class="nav-item"><a class="nav-link" title="About" data-toggle="modal" data-target="#about-modal"
+                        style="cursor:pointer;"><i class="material-icons">info</i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 150px;">
+        <div class="card-group">
+            <div class="card hoverable shadow">
+                <img src="img/screenshots/spring_mass.png" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Spring-mass system</h5>
+                    <p class="card-text">A simple spring-mass system on a frictional surface.</p>
+                </div>
+            </div>
+            <div class="card hoverable shadow">
+                <img src="img/screenshots/ball_on_table.png" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Ball on table</h5>
+                    <p class="card-text">A ball on a table attached to a box through a hole in the middle of the table.</p>
+                </div>
+            </div>
+            <div class="card hoverable shadow">
+                <img src="img/screenshots/gravitation.png" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Gravitation</h5>
+                    <p class="card-text">A simulation of the movement of the moon around the earth.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-group">
+            <div class="card hoverable shadow">
+                <img src="img/screenshots/inclined_plane.png" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Inclined plane</h5>
+                    <p class="card-text">A sliding box over an inclined frictional surface.</p>
+                </div>
+            </div>
+            <div class="card hoverable shadow">
+                <img src="img/screenshots/double_inclined_plane.png" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Double inclined plane</h5>
+                    <p class="card-text">A pair of boxes sliding on different inclined planes and attached between each other with a string.</p>
+                </div>
+            </div>
+            <div class="card hoverable shadow">
+                <img src="img/screenshots/ramp.png" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Ramp</h5>
+                    <p class="card-text">A box sliding in a frictionless skate ramp with a short rough surface and colliding with a spring.</p>
+                </div>
+            </div>
+            <div class="card hoverable shadow">
+                <img src="img/screenshots/pendulum_waves.png" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Pendulum waves</h5>
+                    <p class="card-text">A set of pendulums of different lengths that create a wave effect.</p>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+
+    <!-- ##################### MODALS ##################### -->
+
+    <div class="modal fade" id="help-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Help</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>About this software</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a small compendium of javascript 3D animations that allows the user to perform mechanics
+                        experiments with bodies and systems. </p>
+                    <br>
+                    <h5 class="card-title">Design and implementation</h5>
+                    Dr. Matías J. Micheletto <a
+                        href="http://matiasmicheletto.github.io/">http://matiasmicheletto.github.io/</a>
+                    <br>
+                    Email: <a
+                        href="mailto:matias.micheletto@uns.edu.ar?Subject=Ref.%20SimCirJM">matias.micheletto@uns.edu.ar</a>
+                    <br>
+                    Docs: <a
+                        href="https://github.com/matiasmicheletto/physics-experiments">https://github.com/matiasmicheletto/physics-experiments</a>
+                    </p>
+                    <br><br>
+                    <h5 class="card-title">Terms and conditions</h5>
+                    <p>This program is free software: you can redistribute it and/or modify it under the terms of the
+                        GNU General Public License as published by the Free Software Foundation, either version 3 of the
+                        License.</p>
+                    <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
+                        even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+                        General Public License for more details. You should have received a copy of the GNU General
+                        Public License along with this program. If not, see http://www.gnu.org/licenses.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

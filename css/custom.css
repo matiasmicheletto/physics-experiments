@@ -1,0 +1,8 @@
+.card:hover{
+    transform: scale(1.05);
+}
+
+.card{
+    transition: all 0.2s ease-in-out;
+    margin: 20px;
+}
