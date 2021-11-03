@@ -16,7 +16,7 @@ This equations are solved using simple numerical methods as Euler or RK4 integra
 
 ```js
 // Spring-mass system model - iteration step
-this.step = function(){    
+this.step = function(){
     // Forces acting on the body
     var spring_force = -this.k * this.x; 
     var friction_force = -this.b this.v;
